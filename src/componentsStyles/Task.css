@@ -1,0 +1,17 @@
+.Task {
+    background-color: var(--primaryColor);
+    height: 7rem;
+    width: 75%;
+    padding: 4% 2% 4% 4%;
+    border-radius: 10px;
+}
+
+.Task h4 {
+    color: white;
+}
+
+.Task p {
+    color: lightgray;
+    margin-top: 10px;
+    font-size: 13px;
+}

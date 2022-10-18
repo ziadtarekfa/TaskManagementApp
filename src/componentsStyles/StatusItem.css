@@ -1,0 +1,15 @@
+.status-item {
+    display: flex;
+    align-items: center;
+}
+
+.status-item>div {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.status-item>span {
+    color: lightgray;
+}

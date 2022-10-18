@@ -1,0 +1,21 @@
+.Header {
+    background-color: var(--primaryColor);
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 2% 2% 8%;
+}
+
+.Header h1 {
+    color: white;
+}
+
+.Header button {
+    background-color: var(--secondaryColor);
+    color: white;
+    border-radius: 20px;
+    border-color: transparent;
+    width: 12%;
+    padding: 2px;
+    height: 40px;
+
+}
