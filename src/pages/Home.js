@@ -10,15 +10,21 @@ const Home = () => {
                 <StatusItem color='#49F2A9' status="DONE" count={7} />
             </div>
             <div className='tasks-container'>
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
-                <Task />
+                <div className='todo-tasks'>
+                    <Task />
+                    <Task />
+                    <Task />
+                </div>
+                <div className='doing-tasks'>
+                    <Task />
+                    <Task />
+                    <Task />
+                </div>
+                <div className='done-tasks'>
+                    <Task />
+                    <Task />
+                    <Task />
+                </div>
             </div>
         </div>
 

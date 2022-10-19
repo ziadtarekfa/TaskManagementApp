@@ -1,17 +1,18 @@
 .Home {
     padding: 2% 8% 2% 8%;
-
 }
 
 .status-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .tasks-container {
-    display: grid;
+    display: flex;
+    justify-content: space-between;
     margin-top: 30px;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 2%;
-    row-gap: 10%;
+}
+
+.tasks-container>div {
+    width: 100%;
 }

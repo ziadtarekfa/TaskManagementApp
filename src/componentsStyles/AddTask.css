@@ -1,0 +1,64 @@
+.add-task {
+    width: 420px;
+    height: 500px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primaryColor);
+    margin-top: 20px;
+    margin-left: 40px;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.add-task h3,
+.add-task label {
+    color: white;
+}
+
+.add-task h3 {
+    font-size: 15px;
+}
+
+.add-task label {
+    font-size: 10px;
+}
+
+.add-task input {
+    background-color: transparent;
+    border: 1px solid #515156;
+    height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    color: white;
+}
+
+.add-new-subtask {
+    background-color: white;
+    color: var(--secondaryColor);
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    padding: 8px;
+
+}
+
+.add-task select {
+    height: 40px;
+    background-color: transparent;
+    color: white;
+    padding: 8px;
+    outline: none;
+}
+
+.create-task {
+    background-color: var(--secondaryColor);
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 8px;
+    border: none;
+
+}
