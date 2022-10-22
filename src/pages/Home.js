@@ -6,14 +6,34 @@ import { db } from '../database';
 import '../pagesStyles/Home.css';
 const Home = () => {
     const collectionRef = collection(db, "Boards", "RtKfBUODm9c7AQtRUCUv", "Tasks");
-    const tasks = [];
+    // const toDoTasks = [];
+    const [toDoTasks, setToDoTasks] = useState([]);
+    const [doneTasks, setDoneTasks] = useState([]);
+    const [doingTasks, setDoingTasks] = useState([]);
+
+
+
     useEffect(() => {
+        const toDoTasks = [];
+        const doneTasks = [];
+        const doingTasks = [];
         getDocs(collectionRef).then((data) => {
             data.forEach((doc) => {
-                tasks.push(doc.data());
-                console.log(`${doc.data().title} + ${doc.data().no_of_subtasks}`);
+                if (doc.data().status === "TODO") {
+                    toDoTasks.push(doc.data());
+                }
+                else if (doc.data().status === "DONE") {
+                    doneTasks.push(doc.data());
+                }
+                else if (doc.data().status === "DOING") {
+                    doingTasks.push(doc.data());
+                }
             });
+            setToDoTasks(toDoTasks);
+            setDoneTasks(doneTasks);
+            setDoingTasks(doingTasks);
         });
+
     }, []);
     return (
         <div className='Home'>
@@ -24,19 +44,31 @@ const Home = () => {
             </div>
             <div className='tasks-container'>
                 <div className='todo-tasks'>
-                    <Task />
-                    <Task />
-                    <Task />
+                    {
+                        toDoTasks.map((task) => {
+                            return (
+                                <Task title={task.title} numOfSubtasks={task.no_of_subtasks} o />
+                            );
+                        })
+                    }
                 </div>
                 <div className='doing-tasks'>
-                    <Task />
-                    <Task />
-                    <Task />
+                    {
+                        doingTasks.map((task) => {
+                            return (
+                                <Task title={task.title} numOfSubtasks={task.no_of_subtasks} />
+                            );
+                        })
+                    }
                 </div>
                 <div className='done-tasks'>
-                    <Task />
-                    <Task />
-                    <Task />
+                    {
+                        doneTasks.map((task) => {
+                            return (
+                                <Task title={task.title} numOfSubtasks={task.no_of_subtasks} />
+                            );
+                        })
+                    }
                 </div>
             </div>
         </div>

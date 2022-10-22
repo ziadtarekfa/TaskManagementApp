@@ -1,9 +1,12 @@
 import '../componentsStyles/Task.css';
-const Task = () => {
+const Task = ({ title, numOfSubtasks }) => {
+    function handleClick() {
+        console.log("You clicked");
+    }
     return (
-        <div className='Task'>
-            <h4>Build UI for onboarding flow</h4>
-            <p>3 subtasks</p>
+        <div className='Task' onClick={handleClick}>
+            <h4>{title}</h4>
+            <p>{`${numOfSubtasks} Subtasks`}</p>
         </div>
     );
 }
