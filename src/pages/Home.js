@@ -1,7 +1,20 @@
+import { useEffect, useRef, useState } from 'react';
 import StatusItem from '../components/StatusItem';
 import Task from '../components/Task';
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { db } from '../database';
 import '../pagesStyles/Home.css';
 const Home = () => {
+    const collectionRef = collection(db, "Boards", "RtKfBUODm9c7AQtRUCUv", "Tasks");
+    const tasks = [];
+    useEffect(() => {
+        getDocs(collectionRef).then((data) => {
+            data.forEach((doc) => {
+                tasks.push(doc.data());
+                console.log(`${doc.data().title} + ${doc.data().no_of_subtasks}`);
+            });
+        });
+    }, []);
     return (
         <div className='Home'>
             <div className='status-container'>
