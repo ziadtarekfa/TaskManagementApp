@@ -1,3 +1,71 @@
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
 .view-task {
     background-color: var(--primaryColor);
+    border-radius: 10px;
+    color: white;
+    padding: 2%;
+    width: 500px;
+    position: absolute;
+    bottom: 10%;
+    left: 35%;
+}
+
+.view-task svg {
+    width: 32px;
+    margin-top: 10px;
+}
+
+.task-description {
+    color: gray;
+    line-height: 25px;
+    margin-top: 15px;
+}
+
+.subtasks-text {
+    margin-top: 10px;
+}
+
+.subtasks-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.subtasks-container div {
+    background-color: #1e1b23;
+    border-radius: 5px;
+    display: flex;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.subtask-description {
+    color: white;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.status {
+    margin-top: 20px;
+}
+
+.view-task select {
+    background-color: transparent;
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
 }

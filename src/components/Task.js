@@ -1,13 +1,18 @@
+import { useState } from 'react';
 import '../componentsStyles/Task.css';
-const Task = ({ title, numOfSubtasks }) => {
-    function handleClick() {
-        console.log("You clicked");
-    }
+import ViewTask from './ViewTask';
+const Task = ({ task }) => {
+
+    const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className='Task' onClick={handleClick}>
-            <h4>{title}</h4>
-            <p>{`${numOfSubtasks} Subtasks`}</p>
-        </div>
+        <>
+            <div className='Task' onClick={() => { setIsOpen(true) }}>
+                <h4>{task.title}</h4>
+                <p>{`${task.no_of_subtasks} Subtasks`}</p>
+
+            </div>
+            {isOpen && <ViewTask setIsOpen={setIsOpen} />}
+        </>
     );
 }
 

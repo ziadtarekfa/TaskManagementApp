@@ -47,7 +47,7 @@ const Home = () => {
                     {
                         toDoTasks.map((task) => {
                             return (
-                                <Task title={task.title} numOfSubtasks={task.no_of_subtasks} o />
+                                <Task task={task} />
                             );
                         })
                     }
@@ -56,7 +56,7 @@ const Home = () => {
                     {
                         doingTasks.map((task) => {
                             return (
-                                <Task title={task.title} numOfSubtasks={task.no_of_subtasks} />
+                                <Task task={task} />
                             );
                         })
                     }
@@ -65,7 +65,7 @@ const Home = () => {
                     {
                         doneTasks.map((task) => {
                             return (
-                                <Task title={task.title} numOfSubtasks={task.no_of_subtasks} />
+                                <Task task={task} />
                             );
                         })
                     }
