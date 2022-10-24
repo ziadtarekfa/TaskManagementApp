@@ -2,7 +2,9 @@ import '../componentsStyles/Header.css';
 import { useEffect, useRef, useState } from 'react';
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from '../database';
+import AddTask from './AddTask';
 const Header = () => {
+    const [addTaskIsOpen, setAddTaskIsOpen] = useState(false);
     const [boardName, setBoardName] = useState();
     const boardRef = doc(db, "Boards", "RtKfBUODm9c7AQtRUCUv");
     useEffect(() => {
@@ -11,11 +13,16 @@ const Header = () => {
         });
     });
     return (
-        <div className='Header'>
-            <h1>{boardName}</h1>
-            <button>+ Add New Task</button>
+        <>
+            <div className='Header'>
+                <h1>{boardName}</h1>
+                <button onClick={() => {
+                    setAddTaskIsOpen(true);
+                }}>+ Add New Task</button>
 
-        </div>
+            </div>
+            {addTaskIsOpen && <AddTask setAddTaskIsOpen={setAddTaskIsOpen} />}
+        </>
     );
 }
 
