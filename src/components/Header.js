@@ -1,6 +1,6 @@
 import '../componentsStyles/Header.css';
 import { useEffect, useRef, useState } from 'react';
-import { collection, doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from '../database';
 import AddTask from './AddTask';
 const Header = () => {

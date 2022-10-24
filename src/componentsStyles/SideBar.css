@@ -1,0 +1,40 @@
+.sidebar {
+    width: 20%;
+    padding-top: 1.8%;
+    background-color: var(--primaryColor);
+}
+
+.sidebar h1 {
+    color: white;
+    margin-left: 20%;
+}
+
+.sidebar p {
+    /* All Boards text */
+    color: grey;
+    font-size: 12px;
+    margin: 20px 0 0 20px;
+
+}
+
+.boards {
+    margin-top: 20px;
+}
+
+.boards button {
+    background-color: transparent;
+    border: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: gray;
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 10px 10px 10px 30px;
+    text-align: left;
+    width: 90%;
+}
+
+.boards button:focus {
+    background-color: var(--secondaryColor);
+    color: white;
+}

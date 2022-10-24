@@ -1,10 +1,9 @@
 .Task {
     background-color: var(--primaryColor);
-    height: 7rem;
-    margin-top: 20px;
-    width: 85%;
-    padding: 4% 2% 4% 4%;
     border-radius: 10px;
+    height: 7rem;
+    margin: 20px 30px 0 0;
+    padding: 4% 2% 4% 4%;
 }
 
 .Task h4 {
@@ -13,6 +12,6 @@
 
 .Task p {
     color: lightgray;
-    margin-top: 10px;
     font-size: 13px;
+    margin-top: 10px;
 }

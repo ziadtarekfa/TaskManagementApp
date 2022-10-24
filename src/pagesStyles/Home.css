@@ -1,5 +1,14 @@
-.Home {
-    padding: 2% 8% 2% 8%;
+.home {
+    display: flex;
+    height: 100vh;
+}
+
+.home-content {
+    width: 100vw;
+}
+
+.box {
+    padding: 30px 0 0 30px;
 }
 
 .status-container {
@@ -10,7 +19,6 @@
 .tasks-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
 }
 
 .tasks-container>div {
