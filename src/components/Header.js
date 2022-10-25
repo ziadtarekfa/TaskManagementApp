@@ -1,5 +1,5 @@
 import '../componentsStyles/Header.css';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from '../database';
 import AddTask from './AddTask';

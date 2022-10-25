@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import StatusItem from '../components/StatusItem';
 import Task from '../components/Task';
 import { collection, getDocs } from "firebase/firestore";
@@ -6,37 +6,39 @@ import Header from '../components/Header';
 import { db } from '../database';
 import '../pagesStyles/Home.css';
 import SideBar from '../components/SideBar';
+import { useDispatch, useSelector } from 'react-redux';
+import { setDoingTasks, setDoneTasks, setToDoTasks } from '../redux/tasksSlice';
 const Home = () => {
     const collectionRef = collection(db, "Boards", "RtKfBUODm9c7AQtRUCUv", "Tasks");
-    // const toDoTasks = [];
-    const [toDoTasks, setToDoTasks] = useState([]);
-    const [doneTasks, setDoneTasks] = useState([]);
-    const [doingTasks, setDoingTasks] = useState([]);
 
-
-
+    const { toDoTasks, doneTasks, doingTasks } = useSelector((state) => state.tasks);
+    const dispatch = useDispatch();
     useEffect(() => {
-        const toDoTasks = [];
-        const doneTasks = [];
-        const doingTasks = [];
+        const toDotemp = [];
+        const doneTemp = [];
+        const doingTemp = [];
         getDocs(collectionRef).then((data) => {
+
             data.forEach((doc) => {
                 if (doc.data().status === "TODO") {
-                    toDoTasks.push(doc.data());
+                    toDotemp.push(doc.data());
                 }
                 else if (doc.data().status === "DONE") {
-                    doneTasks.push(doc.data());
+                    doneTemp.push(doc.data());
                 }
                 else if (doc.data().status === "DOING") {
-                    doingTasks.push(doc.data());
+                    doingTemp.push(doc.data());
                 }
             });
-            setToDoTasks(toDoTasks);
-            setDoneTasks(doneTasks);
-            setDoingTasks(doingTasks);
+            dispatch(setToDoTasks(toDotemp));
+            dispatch(setDoneTasks(doneTemp));
+            dispatch(setDoingTasks(doingTemp));
         });
 
     }, []);
+
+
+
     return (
         <div className='home'>
             <SideBar />
