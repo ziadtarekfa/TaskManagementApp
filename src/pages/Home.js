@@ -9,33 +9,33 @@ import SideBar from '../components/SideBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDoingTasks, setDoneTasks, setToDoTasks } from '../redux/tasksSlice';
 const Home = () => {
-    const collectionRef = collection(db, "Boards", "RtKfBUODm9c7AQtRUCUv", "Tasks");
+    // const collectionRef = collection(db, "Boards", "RtKfBUODm9c7AQtRUCUv", "Tasks");
 
     const { toDoTasks, doneTasks, doingTasks } = useSelector((state) => state.tasks);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        const toDotemp = [];
-        const doneTemp = [];
-        const doingTemp = [];
-        getDocs(collectionRef).then((data) => {
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     const toDotemp = [];
+    //     const doneTemp = [];
+    //     const doingTemp = [];
+    //     getDocs(collectionRef).then((data) => {
 
-            data.forEach((doc) => {
-                if (doc.data().status === "TODO") {
-                    toDotemp.push(doc.data());
-                }
-                else if (doc.data().status === "DONE") {
-                    doneTemp.push(doc.data());
-                }
-                else if (doc.data().status === "DOING") {
-                    doingTemp.push(doc.data());
-                }
-            });
-            dispatch(setToDoTasks(toDotemp));
-            dispatch(setDoneTasks(doneTemp));
-            dispatch(setDoingTasks(doingTemp));
-        });
+    //         data.forEach((doc) => {
+    //             if (doc.data().status === "TODO") {
+    //                 toDotemp.push(doc.data());
+    //             }
+    //             else if (doc.data().status === "DONE") {
+    //                 doneTemp.push(doc.data());
+    //             }
+    //             else if (doc.data().status === "DOING") {
+    //                 doingTemp.push(doc.data());
+    //             }
+    //         });
+    //         dispatch(setToDoTasks(toDotemp));
+    //         dispatch(setDoneTasks(doneTemp));
+    //         dispatch(setDoingTasks(doingTemp));
+    //     });
 
-    }, []);
+    // }, []);
 
 
 

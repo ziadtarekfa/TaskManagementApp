@@ -6,7 +6,8 @@ export const tasksSlice = createSlice({
     initialState: {
         toDoTasks: [],
         doneTasks: [],
-        doingTasks: []
+        doingTasks: [],
+        activeBoardID: ""
     },
 
     reducers: {
@@ -18,8 +19,24 @@ export const tasksSlice = createSlice({
         },
         setDoingTasks: (state, action) => {
             state.doingTasks = action.payload;
+        },
+        setActiveBoardID: (state, action) => {
+            state.activeBoardID = action.payload;
+        },
+        addTask: (state, action) => {
+
+            if (action.payload.status === "TODO") {
+                state.toDoTasks.unshift(action.payload);
+            }
+            else if (action.payload.status === "DONE") {
+                state.doneTasks.unshift(action.payload);
+            }
+            else if (action.payload.status === "DOING") {
+                state.doingTasks.unshift(action.payload);
+            }
+
         }
     }
 })
-export const { setToDoTasks, setDoneTasks, setDoingTasks } = tasksSlice.actions;
+export const { setToDoTasks, setDoneTasks, setDoingTasks, addTask, setActiveBoardID } = tasksSlice.actions;
 export default tasksSlice.reducer;

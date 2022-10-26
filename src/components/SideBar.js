@@ -3,14 +3,15 @@ import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { db } from '../database';
 import '../componentsStyles/SideBar.css';
-import { setDoingTasks, setDoneTasks, setToDoTasks } from '../redux/tasksSlice';
+import { setActiveBoardID, setDoingTasks, setDoneTasks, setToDoTasks } from '../redux/tasksSlice';
 const SideBar = () => {
 
 
-    // const { toDoTasks, doneTasks, doingTasks } = useSelector((state) => state.tasks);
+
     const dispatch = useDispatch();
     function viewBoard(event) {
         const collectionRef = collection(db, "Boards", event.currentTarget.id, "Tasks");
+        dispatch(setActiveBoardID(event.currentTarget.id));
         const toDotemp = [];
         const doneTemp = [];
         const doingTemp = [];
@@ -30,10 +31,12 @@ const SideBar = () => {
             dispatch(setToDoTasks(toDotemp));
             dispatch(setDoneTasks(doneTemp));
             dispatch(setDoingTasks(doingTemp));
+
         });
     }
     const [boardsList, setBoardsList] = useState([]);
     const [boardsCount, setCount] = useState();
+
     useEffect(() => {
         const boardsRef = collection(db, "Boards");
         getDocs(boardsRef).then((boards) => {
@@ -46,7 +49,6 @@ const SideBar = () => {
             setCount(count);
             setBoardsList(tempBoardsList);
         });
-
 
     }, []);
     return (

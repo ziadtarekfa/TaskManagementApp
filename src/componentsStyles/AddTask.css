@@ -24,10 +24,15 @@
     font-size: 10px;
 }
 
+.subtasks>:first-child+div {
+    margin-top: 10px;
+}
+
 .add-task input {
     background-color: transparent;
     border: 1px solid #515156;
-    height: 30px;
+    overflow-wrap: break-word;
+    /* height: 30px; */
     padding: 10px;
     border-radius: 5px;
     width: 100%;
@@ -61,4 +66,8 @@
     padding: 8px;
     border: none;
 
+}
+
+option {
+    background-color: var(--primaryColor);
 }
